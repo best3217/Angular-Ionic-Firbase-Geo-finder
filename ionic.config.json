@@ -1,0 +1,7 @@
+{
+  "name": "geofinder",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,41 @@
+<div class="container">
+    <swiper *ngIf="swiperData&&swiperData.length > 0" #swiper [config]='config' (swiper)="onSwiper($event)" (slideChange)="onSlideChange()">
+        <ng-template *ngFor="let nodes of swiperData" swiperSlide>
+            <div *ngIf="nodes.length > 0" class="w-100 h-100">
+                <div *ngFor="let n of nodes" class="divitem">
+                    <ion-item detail="false" button lines="none" [ngClass]="{active: n.isExpanded}">
+                        <ion-row>
+                            <ion-col>
+                                <ion-icon *ngIf="n.icon" [src]="(n.isExpanded) ? './assets/finder_icons/open-folder.svg' : './assets/finder_icons/'+n.icon+'.svg'" class="iconNode"></ion-icon>
+
+                                <ion-label color="dark">
+                                    {{n.title}}
+                                </ion-label>
+                            </ion-col>
+
+                            <ion-col>
+                                <ion-label class="action">
+                                    <ion-icon (click)="rename(n, $event)" src="./assets/finder_icons/pencil.svg"></ion-icon>
+                                </ion-label>
+
+                                <ion-label class="action">
+                                    <ion-icon (click)="openFolder(n)" slot="end" *ngIf="n.sub" name="chevron-forward-outline"></ion-icon>
+                                </ion-label>
+
+                                <ion-label class="action checkbox">
+                                    <ion-icon (click)="toggleCheck(n, $event)" [src]="n.isChecked ? './assets/finder_icons/checkbox-on.svg' : './assets/finder_icons/checkbox-off.svg'"></ion-icon>
+                                </ion-label>
+                            </ion-col>
+                        </ion-row>
+
+                    </ion-item>
+                </div>
+            </div>
+            <ion-label *ngIf="nodes&&nodes.length == 0" class="noData">No data!</ion-label>
+        </ng-template>
+    </swiper>
+
+    <ion-list>
+        <ion-button (click)="slideTo(i)" [ngClass]="{active: i == activeIndex}" *ngFor="let item of swiperData; let i = index" shape="round"></ion-button>
+    </ion-list>
+</div>

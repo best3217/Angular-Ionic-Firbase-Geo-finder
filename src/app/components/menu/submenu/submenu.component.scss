@@ -1,0 +1,37 @@
+.menu-body {
+    height: calc(100vh - 225px);
+    background: var(--finder-background);
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 2px;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: var(--ion-gray-400);
+        border-radius: 10px;
+    }
+    @media(max-width: 400px) {
+        height: calc(100vh - 260px);
+    }
+    @media(min-width:400px) {
+        padding-top: 10px;
+    }
+}
+
+ion-searchbar {
+    background: var(--ion-purple-500);
+}
+
+#filter {
+    --background: var(--ion-purple-500);
+    color: white;
+    --color-hover: white;
+}
+
+ion-content.filter {
+    height: fit-content;
+}
+
+app-view {
+    padding: 10px 0;
+}

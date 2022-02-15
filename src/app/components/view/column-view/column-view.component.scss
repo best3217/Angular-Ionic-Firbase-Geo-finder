@@ -1,0 +1,96 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+swiper {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 2px;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: var(--ion-gray-400);
+        border-radius: 10px;
+    }
+}
+
+ion-item {
+    --min-height: var(--finder-default-size2);
+    @media(min-width: 400px) {
+        margin-bottom: 7px;
+    }
+    ion-label.action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--finder-default-size2);
+        color: var(--ion-gray-400);
+        &.checkbox {
+            justify-content: flex-end;
+            @media(max-width: 400px) {
+                width: 36px;
+            }
+        }
+    }
+    ion-label {
+        font-size: var(--finder-fontSize-md);
+    }
+}
+
+ion-row {
+    justify-content: space-between;
+    width: 100%;
+    ion-col {
+        display: flex;
+        padding: 0;
+        align-items: center;
+    }
+    ion-col:nth-child(1) {
+        gap: 6px;
+        max-width: calc(100% - 100px);
+    }
+    ion-col:nth-child(2) {
+        justify-content: flex-end;
+        @media(min-width: 400px) {
+            gap: 5px;
+        }
+    }
+}
+
+.indent {
+    padding-left: 24px;
+}
+
+ion-list {
+    height: var(--finder-default-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    background: var(--ion-gray-200);
+    ion-button {
+        width: 10px;
+        height: 10px;
+        margin: 2px;
+        border-radius: 99999px;
+        --box-shadow: none;
+        border: 2px solid var(--ion-gray-400);
+        --background: white;
+        --padding-start: 0;
+        --padding-end: 0;
+        &.active {
+            border: none;
+            --background: var(--ion-gray-400);
+        }
+    }
+}
+
+.noData {
+    padding: 0 var(--finder-default-padding);
+    font-size: var(--finder-fontSize-md);
+}

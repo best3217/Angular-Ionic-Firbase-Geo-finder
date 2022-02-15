@@ -1,0 +1,12 @@
+<!--  -->
+<app-filterbar [nodes]='nodes' [field]="searchField" [type]="viewType" (viewTypeEvent)="changeViewType($event)" (searchEvent)="searchEvent($event)" (event)="getActiveParma($event)">
+</app-filterbar>
+<app-optionbar [isSelected]="isSelected" [viewType]="viewType" [field]="searchField" (zoomEvent)="zoom($event)"></app-optionbar>
+
+<div #content class="menu-body">
+    <app-view *ngIf="searchField==='view'&&nodes" [nodes]="nodes" [zoomSize]='zoomSize' [type]="viewType "></app-view>
+    <app-sort [nodes]="nodes" (sortFilter)='returnView($event)' *ngIf="searchField==='sort' "></app-sort>
+    <app-filter (filterEvent)="filterEvent($event)" (AllSelectEvent)="filterAllSelectEvent($event)" [nodes]="nodes" *ngIf="searchField==='filter' "></app-filter>
+</div>
+<!--  -->
+<app-footer [filterData]="filterData" [changes]="changes" [viewType]="viewType" [type]="searchField " [nodes]="nodes " (returnview)="returnView($event) "></app-footer>

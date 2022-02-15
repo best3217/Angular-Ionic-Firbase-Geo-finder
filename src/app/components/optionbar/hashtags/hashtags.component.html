@@ -1,0 +1,20 @@
+<div>
+    <ion-searchbar placeholder="#" debounce="1000"></ion-searchbar>
+    <div class="inner">
+        <ion-item lines="none" button *ngFor="let item of hashtag.sub">
+            {{ item.title }}
+        </ion-item>
+    </div>
+</div>
+<ion-row>
+    <ion-col size="6">
+        <ion-button (click)="dismiss()">
+            <ion-icon src="./assets/finder_icons/cancel.svg"></ion-icon>
+        </ion-button>
+    </ion-col>
+    <ion-col size="6">
+        <ion-button>
+            <ion-icon src="./assets/finder_icons/check.svg"></ion-icon>
+        </ion-button>
+    </ion-col>
+</ion-row>

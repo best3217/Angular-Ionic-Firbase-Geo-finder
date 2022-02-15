@@ -1,0 +1,17 @@
+<ion-list>
+    <ion-item lines="full" button [disabled]="isCopied||checkedNum == 0" (click)="handleCopy('cut')">
+        <ion-label>Cut</ion-label>
+    </ion-item>
+
+    <ion-item lines="full" button [disabled]="isCopied|| checkedNum == 0" (click)="handleCopy('copy')">
+        <ion-label>Copy</ion-label>
+    </ion-item>
+
+    <ion-item lines="full" [disabled]="!isCopied" button (click)="paste()">
+        <ion-label>Paste</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" button (click)="close()">
+        <ion-label>Close</ion-label>
+    </ion-item>
+</ion-list>

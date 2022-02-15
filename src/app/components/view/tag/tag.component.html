@@ -1,0 +1,33 @@
+<div *ngFor="let tag of tags">
+    <ion-item lines="none" button (click)="expandItem(tag)">
+        <ion-row>
+            <ion-col>
+                <ion-icon [name]="tag.isExpanded ? 'chevron-down-outline' : 'chevron-forward-outline'"></ion-icon>
+                <ion-icon class="icon" [src]="'./assets/finder_icons/'+tag.icon+'.svg'"></ion-icon>
+                <ion-title>{{ tag.title }}</ion-title>
+            </ion-col>
+        </ion-row>
+
+    </ion-item>
+
+    <ion-list *ngIf="tag.isExpanded">
+        <ion-item lines="none" class="submenu" *ngFor="let sub of tag.sub" button>
+            <div>
+                <ion-row>
+                    <ion-col>
+                        <ion-icon (click)="changeColor($event, tag, sub)" class="icon" [src]="'./assets/finder_icons/'+tag.icon+'.svg'" [style.color]='sub.color'></ion-icon>
+                        <ion-title>{{ sub.title }}</ion-title>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>
+                            <ion-icon (click)="rename(sub, $event, tag)" src="./assets/finder_icons/pencil.svg"></ion-icon>
+                        </ion-label>
+                        <ion-label>
+                            <ion-icon (click)="toggleCheck(sub, $event)" [src]="sub.isChecked ? './assets/finder_icons/checkbox-on.svg' : './assets/finder_icons/checkbox-off.svg'"></ion-icon>
+                        </ion-label>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </ion-item>
+    </ion-list>
+</div>

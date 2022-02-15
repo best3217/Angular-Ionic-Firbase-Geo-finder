@@ -1,0 +1,19 @@
+ion-content.mainMenu {
+    --background: var(--ion-purple-500);
+    --padding-top: 50px;
+    ion-item {
+        --color: white;
+    }
+    ion-icon {
+        color: white;
+    }
+}
+
+ion-item {
+    --background: 0;
+}
+
+ion-list {
+    --background: 0;
+    background: 0;
+}

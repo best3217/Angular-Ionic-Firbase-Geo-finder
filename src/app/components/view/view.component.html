@@ -1,0 +1,11 @@
+<app-tree-node [ngClass]="zoomSize" *ngIf="type==='tree'" [nodes]="nodes"></app-tree-node>
+
+<app-list-view (listDestroyEvent)="listEvent()" [ngClass]="zoomSize" *ngIf="type==='list'"></app-list-view>
+
+<app-column-view [ngClass]="zoomSize" *ngIf="type==='columns'" [nodes]="nodes"></app-column-view>
+
+<app-tile-view *ngIf="type==='selection'" [nodes]="nodes"></app-tile-view>
+
+<app-gallery-view [ngClass]="zoomSize" *ngIf="type==='galery'" [zoomSize]='zoomSize' [nodes]="nodes"></app-gallery-view>
+
+<app-tag *ngIf="type==='tag'"></app-tag>

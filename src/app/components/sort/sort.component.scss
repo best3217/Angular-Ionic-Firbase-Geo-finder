@@ -1,0 +1,20 @@
+ion-list {
+    padding: 0;
+    ion-label {
+        font-size: var(--finder-fontSize-md);
+        line-height: 2;
+    }
+    ion-item {
+        --padding-start: 10px;
+        --padding-end: 10px;
+        --min-height: var(--finder-default-size);
+        --inner-padding-end: 0;
+        ion-radio {
+            --color-checked: var(--ion-gray-400);
+            margin: 0;
+        }
+        ion-label {
+            margin: 0;
+        }
+    }
+}

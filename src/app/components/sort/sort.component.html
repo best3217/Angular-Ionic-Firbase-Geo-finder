@@ -1,0 +1,16 @@
+<ion-list>
+
+    <ion-radio-group [value]="this.value" (ionChange)="selectFilter($event)">
+
+        <ion-item>
+            <ion-label>Ascending A-Z 0-9</ion-label>
+            <ion-radio slot="end" value="asc"></ion-radio>
+        </ion-item>
+
+        <ion-item lines="none">
+            <ion-label>Descending Z-A 9-0</ion-label>
+            <ion-radio slot="end" value="desc"></ion-radio>
+        </ion-item>
+    </ion-radio-group>
+
+</ion-list>

@@ -1,0 +1,16 @@
+<ion-list>
+    <div *ngFor="let tag of tags">
+        <ion-item lines="full" button (click)="expandItem(tag, $event)">
+            <ion-icon class="icon" [src]="'./assets/finder_icons/'+tag.icon+'.svg'"></ion-icon>
+            <ion-label>{{ tag.title }}</ion-label>
+            <ion-icon *ngIf="tag.title.toLowerCase()!=='hashtags'" [name]="tag.isExpanded ? 'chevron-down-outline' : 'chevron-forward-outline'"></ion-icon>
+        </ion-item>
+        <ion-list *ngIf="tag.isExpanded&&tag.title.toLowerCase()!=='hashtags'">
+            <ion-item lines="none" class="subitem" *ngFor="let sub of tag.sub" button>
+                <div>
+                    {{ sub.title }}
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-list>

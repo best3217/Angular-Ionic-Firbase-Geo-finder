@@ -1,0 +1,59 @@
+<form [formGroup]="addTagForm" (ngSubmit)="submit($event)" novalidate>
+    <div class="container">
+        <ion-title>Add Tag</ion-title>
+
+        <div class="mb-10">
+            <ion-label position="stacked" class="heading">Tag Name</ion-label>
+            <ion-input type="text" [ngClass]="{invalid:isSubmitted && errorControl.tagName.errors?.required}" formControlName="tagName" required></ion-input>
+            <!-- 
+            <span class="error" *ngIf="isSubmitted && errorControl.tagName.errors?.required">
+                Tag name is required.
+            </span> -->
+        </div>
+        <div class="w-100 selection mb-10">
+            <ion-label position="stacked" class="heading" [ngClass]="{'error': isSubmitted && errorControl.selectTag.errors?.required}">
+                Tag selection
+                <!-- <span *ngIf="isSubmitted && errorControl.selectTag.errors?.required" class="invalid" style="font-size: 0.8rem;">
+                        : Tag is required
+                </span> -->
+            </ion-label>
+            <ion-row>
+                <ion-col size="3" *ngFor="let tag of tags" class="text-center">
+                    <ion-item [ngClass]="{active:tag.title.toLowerCase() == sTagName}" class="text-center" button lines="none" (click)="selectTag(tag)">
+                        <div class="w-100">
+                            <ion-icon class="tag-icon" [src]="'./assets/finder_icons/'+tag.icon+'.svg'"></ion-icon>
+                            <ion-label class="tag_name" style="text-transform: uppercase; margin-bottom: 4px;">{{ tag.title }}</ion-label>
+                        </div>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <input type="hidden" formControlName="selectTag">
+        </div>
+
+        <div class="mb-15">
+            <ion-label position="stacked" class="heading">Status color</ion-label>
+            <div class="d-flex w-100" style="gap: 8px; margin-top: 5px;">
+                <input formControlName="colorPicker" [(ngModel)]="color" type="color">
+                <ion-input [ngClass]="{invalid:isSubmitted && errorControl.hex.errors?.required}" type="text" class="colorPicker" formControlName="hex" [(ngModel)]="color"></ion-input>
+                <!-- <span class="error" style="left: 66px !important;" *ngIf="isSubmitted && errorControl.hex.errors?.required">
+                    Color is required.
+                </span> -->
+            </div>
+        </div>
+
+    </div>
+
+    <ion-row class="footer">
+        <ion-col size="6">
+            <ion-button type="button" (click)="dismiss()">
+                <ion-icon src="./assets/finder_icons/cancel.svg"></ion-icon>
+            </ion-button>
+        </ion-col>
+
+        <ion-col size="6">
+            <ion-button type="submit">
+                <ion-icon src="./assets/finder_icons/check.svg"></ion-icon>
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</form>

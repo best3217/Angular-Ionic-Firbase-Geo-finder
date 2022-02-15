@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-icon (click)="openGeoFinder()" button slot="start" name="menu" class="menu"> </ion-icon>
+        <ion-title class="ion-text-center">Geometry</ion-title>
+        <ion-icon class="user" button slot="end" src="/assets/ionicons/person-circle.svg"></ion-icon>
+    </ion-toolbar>
+</ion-header>
+
+<!-- <app-filterbar (event)="getActiveParma($event)"></app-filterbar>
+<app-optionbar></app-optionbar> -->
+
+<!-- <ion-list class="menu-wrapper"> -->
+<app-menu></app-menu>
+<!-- <app-submenu [class.open]="submenuOpen"></app-submenu> -->
+<!-- </ion-list> -->
+<!-- <ion-content>
+
+    <ion-list *ngIf="isView">
+        <ion-item *ngIf="!data1" lines="none">No Data Found!</ion-item>
+        <app-tree-node [nodes]="data1" *ngIf="data1"></app-tree-node>
+    </ion-list>
+
+    <app-sort *ngIf="isSort"></app-sort>
+
+    <app-filter *ngIf="isFilter"></app-filter>
+
+</ion-content>
+<app-footer></app-footer> -->

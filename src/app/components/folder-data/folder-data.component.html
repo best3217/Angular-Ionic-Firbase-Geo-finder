@@ -1,0 +1,137 @@
+<ion-header style="display:flex; align-items:center;">
+    <ion-title style="align-self: center;color: white;">DataPoint</ion-title>
+    <!-- <ion-button (click)="addData()">test</ion-button> -->
+    <!-- <ion-button (click)="restore()" *ngIf="restoreData.length > 0">Restore</ion-button> -->
+    <ion-button (click)="save()">Save</ion-button>
+    <ion-button (click)="close()">Close</ion-button>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <!-- <ion-item>
+          <ion-label position="stacked">Name:</ion-label>
+          <ion-input *ngFor="let name of data.name" 
+          (ionBlur)="addInput($event, DataPoint)"></ion-input>
+        </ion-item> -->
+                <ion-item>
+                    <ion-label position="stacked">Name:</ion-label>
+                    <ion-input #name *ngFor="let name of data.name" value="{{name}}"></ion-input>
+                </ion-item>
+            </ion-col>
+
+            <ion-col>
+                <ion-item>
+                    <ion-label position="stacked">ID:</ion-label>
+                    <ion-note>{{data.id}}</ion-note>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="stacked">MonitorPointType:</ion-label>
+                    <ion-input #monitorPointType value="{{data.monitorPointType | arrayToString}}"></ion-input>
+                    <!-- <ion-input #monitorPointType *ngIf="!data.monitorPointType"></ion-input> -->
+                </ion-item>
+            </ion-col>
+
+            <ion-col>
+                <ion-item>
+                    <ion-label position="stacked">MonitorPointGroup:</ion-label>
+                    <!-- <ion-input #monitorPointGroup *ngFor="let group of data.monitorPointGroup" value="{{data.monitorPointGroup | arrayToString}}"></ion-input> -->
+                    <ion-input #monitorPointGroup value="{{data.monitorPointGroup | arrayToString}}"></ion-input>
+                    <!-- <ion-input #monitorPointGroup *ngIf="!data.monitorPointGroup"></ion-input> -->
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+
+                <ion-item>
+                    <ion-label position="stacked">Installation Date:</ion-label>
+                    <ion-note *ngFor="let date of data.installationDate">{{date}}</ion-note>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="stacked">Version:</ion-label>
+                    <ion-note>{{data._version_}}</ion-note>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+
+                <ion-item>
+                    <ion-label position="stacked">Alarm Level:</ion-label>
+                    <ion-input #alarmLevel *ngFor="let alarm of data.alarmLevel" value="{{alarm}}" type="number"></ion-input>
+                    <ion-input #alarmLevel *ngIf="!data.alarmLevel" type="number"></ion-input>
+                </ion-item>
+            </ion-col>
+
+            <ion-col>
+                <ion-item lines="none">
+                    <ion-label position="stacked">Location:</ion-label>
+
+                    <ion-grid>
+                        <ion-row>
+                            <ion-item>
+                                <ion-label position="stacked">North:</ion-label>
+                                <ion-input #locationNorth *ngFor="let north of this.data['location.northing']" value="{{north}}" type="number"></ion-input>
+                                <ion-input #locationNorth *ngIf="!this.data['location.northing']" type="number"></ion-input>
+                            </ion-item>
+                        </ion-row>
+                        <ion-row>
+                            <ion-item>
+                                <ion-label position="stacked">East:</ion-label>
+                                <ion-input #locationEast *ngFor="let east of this.data['location.easting']" value="{{east}}" type="number"></ion-input>
+                                <ion-input #locationEast *ngIf="!this.data['location.easting']" type="number"></ion-input>
+                            </ion-item>
+                        </ion-row>
+                        <ion-row>
+                            <ion-item>
+                                <ion-label position="stacked">Elevation:</ion-label>
+                                <ion-input #locationElevation *ngFor="let elevation of this.data['location.elevation']" value="{{elevation}}" type="number"></ion-input>
+                                <ion-input #locationElevation *ngIf="!this.data['location.elevation']" type="number" value="0"></ion-input>
+                            </ion-item>
+                        </ion-row>
+                    </ion-grid>
+                </ion-item>
+
+                <!-- <ion-item *ngIf="(data['location.easting'] & data['location.northing'])">
+          <ion-label position="stacked">
+            Position:
+          </ion-label>
+          <ion-input>
+            East: {{this.data["location.easting"][0]}} <br>
+            North: {{this.data["location.northing"][0]}}
+          </ion-input>
+        </ion-item> -->
+            </ion-col>
+        </ion-row>
+
+
+
+        <!-- <ion-row  class="ion-align-self-end" style="margin-top:auto;">
+    </ion-row> -->
+        <ion-row>
+
+            <ion-item class="ion-align-self-end">
+                <ion-label position="stacked">
+                    Info:
+                </ion-label>
+                <ion-note *ngFor="let info of data.info">
+                    {{info}}
+                </ion-note>
+            </ion-item>
+        </ion-row>
+
+    </ion-grid>
+
+
+    <!-- <app-map></app-map> -->
+</ion-content>

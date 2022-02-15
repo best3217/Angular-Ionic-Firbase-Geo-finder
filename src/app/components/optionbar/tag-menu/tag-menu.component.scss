@@ -1,0 +1,21 @@
+ion-list {
+    padding: 0;
+    ion-label {
+        font-size: 1rem;
+    }
+    ion-item {
+        --inner-padding-end: 5px !important;
+        --padding-start: 13px !important;
+        --border-color: var(--ion-gray-300);
+        --background-activated: var(--ion-gray-300);
+        .icon {
+            margin-right: 5px;
+        }
+        &.subitem {
+            div {
+                padding-left: 30px;
+                font-size: 1rem;
+            }
+        }
+    }
+}

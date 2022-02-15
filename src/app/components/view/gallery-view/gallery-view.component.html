@@ -1,0 +1,38 @@
+<ion-row [ngClass]="{'maxZoom': zoomSize=='zoom4'}">
+
+    <ion-col *ngIf="parentId != null" [size]="this.zoomSize=='zoom4' ? 6 : 4 ">
+        <ion-item class="backNode" (click)="backToParent(parentId)" button lines="none">
+            <div class="node">
+                <ion-icon src="./assets/finder_icons/go-to-parent-folder.svg" class="backIcon "></ion-icon>
+                <div class="label ">
+                    <ion-label class="color-dark ">back</ion-label>
+                </div>
+            </div>
+        </ion-item>
+    </ion-col>
+
+    <ion-col [size]="this.zoomSize=='zoom4' ? 6 : 4 " *ngFor="let n of nodes ">
+        <ion-item [ngClass]="{active:n.isChecked}" (click)="openFolder(n)" button lines="none">
+            <div class="node">
+                <div class="w-100">
+                    <ion-icon *ngIf="n.icon" [src]="'./assets/finder_icons/'+n.icon+'.svg'" class="iconNode"></ion-icon>
+                    <div class="label">
+                        <ion-label class="color-dark">{{ n.title }}</ion-label>
+                    </div>
+                </div>
+                <div class="action">
+                    <ion-label>
+                        <ion-icon (click)="rename(n, $event)" src="./assets/finder_icons/pencil.svg"></ion-icon>
+                    </ion-label>
+
+                    <ion-label>
+                        <ion-icon (click)="toggleCheck(n, $event)" [src]="n.isChecked ? './assets/finder_icons/checkbox-on.svg' : './assets/finder_icons/checkbox-off.svg'"></ion-icon>
+                    </ion-label>
+                </div>
+            </div>
+        </ion-item>
+    </ion-col>
+
+</ion-row>
+
+<ion-label *ngIf="nodes&&nodes.length == 0" class="noData">No data!</ion-label>

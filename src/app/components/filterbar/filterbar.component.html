@@ -1,0 +1,56 @@
+<ion-row>
+    <ion-col>
+        <ion-searchbar [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" debounce="1000"></ion-searchbar>
+    </ion-col>
+
+    <ion-col>
+        <ion-fab horizontal="start" vertical="center">
+            <ion-fab-button shadow="none">
+                <div class="button">
+                    <ion-icon [src]="'./assets/finder_icons/view-'+activeViewType+'.svg'"></ion-icon>
+                    <div class="drop-label">
+                        <ion-label style="margin-left: 8px;">view</ion-label>
+                        <ion-icon class="dropdown_icon" src='./assets/finder_icons/chevron-arrow-down.svg'></ion-icon>
+                    </div>
+                </div>
+            </ion-fab-button>
+
+            <ion-fab-list>
+                <ion-fab-button *ngFor="let button of fab_buttons" (click)="changeViewType(button.icon)">
+                    <div>
+                        <ion-icon [src]="'./assets/finder_icons/view-'+button.icon+'.svg'"></ion-icon>
+                    </div>
+                </ion-fab-button>
+            </ion-fab-list>
+        </ion-fab>
+
+        <ion-fab horizontal="start" vertical="center">
+            <ion-badge *ngIf="filterData&&filterData.length > 0" color="primary">{{ filterData.length }}</ion-badge>
+
+            <ion-fab-button shadow="none">
+                <div class="button">
+                    <ion-icon src='./assets/finder_icons/filter-sorting.svg'></ion-icon>
+                    <div class="drop-label">
+                        <ion-label style="margin-left: 8px;">Filter</ion-label>
+                        <ion-icon class="dropdown_icon" src='./assets/finder_icons/chevron-arrow-down.svg'></ion-icon>
+                    </div>
+                </div>
+            </ion-fab-button>
+
+            <ion-fab-list>
+                <ion-fab-button shape="round" (click)="toggle('filter')">
+                    <div class="fsBtn">
+                        <ion-icon src="./assets/finder_icons/filter.svg"></ion-icon>
+                        <ion-label>Filter</ion-label>
+                    </div>
+                </ion-fab-button>
+                <ion-fab-button shape="round" (click)="toggle('sort')">
+                    <div class="fsBtn">
+                        <ion-icon src="./assets/finder_icons/sort.svg"></ion-icon>
+                        <ion-label>Sort</ion-label>
+                    </div>
+                </ion-fab-button>
+            </ion-fab-list>
+        </ion-fab>
+    </ion-col>
+</ion-row>

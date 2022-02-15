@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="w-100 inner" *ngIf="nodes&&nodes.length > 0; else elseTemp">
+        <swiper #swiper [config]='previewConfig'>
+            <ng-template *ngFor="let n of nodes" swiperSlide>
+                <ion-row (click)="openFolder(n)" class="preview">
+                    <ion-col size="12">
+                        <ion-icon *ngIf="n.icon" [src]="'./assets/finder_icons/'+n.icon+'.svg'" class="iconNode"></ion-icon>
+                        <div class="nodeTitle">
+                            <ion-title color="dark">{{ n.title }}</ion-title>
+                            <ion-label>Document type - 4.2MB</ion-label>
+                        </div>
+                    </ion-col>
+
+                    <ion-col class="information" size="12">
+                        <ion-title class="heading">Information</ion-title>
+                        <ion-list lines="none">
+                            <ion-item class="timestamp">
+                                <ion-label>Created</ion-label>
+                                <ion-label slot="end" color="dark">Monday, 19, july at 9.05</ion-label>
+                            </ion-item>
+                            <ion-item class="timestamp">
+                                <ion-label>Changed</ion-label>
+                                <ion-label slot="end" color="dark">Monday, 19, july at 9.05</ion-label>
+                            </ion-item>
+                            <ion-item class="timestamp">
+                                <ion-label>Last Opened</ion-label>
+                                <ion-label slot="end" color="dark">Monday, 19, july at 9.05</ion-label>
+                            </ion-item>
+                        </ion-list>
+                    </ion-col>
+
+                    <ion-col size="12">
+                        <ion-title class="heading">Tags</ion-title>
+                        <ion-list class="tags">
+                            <ion-item class="tag" lines="none">
+                                <ion-icon src="./assets/finder_icons/hashtags.svg"></ion-icon>
+                                <ion-label>Name</ion-label>
+                                <ion-icon src="./assets/finder_icons/cancel-circle-solid.svg"></ion-icon>
+                            </ion-item>
+                            <ion-item class="tag" lines="none">
+                                <ion-icon src="./assets/finder_icons/hashtags.svg"></ion-icon>
+                                <ion-label>Name</ion-label>
+                                <ion-icon src="./assets/finder_icons/cancel-circle-solid.svg"></ion-icon>
+                            </ion-item>
+                            <ion-item class="tag" lines="none">
+                                <ion-icon src="./assets/finder_icons/hashtags.svg"></ion-icon>
+                                <ion-label>Name</ion-label>
+                                <ion-icon src="./assets/finder_icons/cancel-circle-solid.svg"></ion-icon>
+                            </ion-item>
+                            <ion-item class="tag" lines="none">
+                                <ion-icon src="./assets/finder_icons/hashtags.svg"></ion-icon>
+                                <ion-label>Name</ion-label>
+                                <ion-icon src="./assets/finder_icons/cancel-circle-solid.svg"></ion-icon>
+                            </ion-item>
+                        </ion-list>
+                    </ion-col>
+
+                    <ion-col size="12">
+                        <ion-title class="heading">Status</ion-title>
+                    </ion-col>
+                </ion-row>
+            </ng-template>
+        </swiper>
+    </div>
+    <ng-template #elseTemp>
+        <div>
+            <ion-label class="noData w-100">No data!</ion-label>
+        </div>
+    </ng-template>
+
+    <swiper class="index" [config]='config'>
+        <ng-template *ngIf="parentId != null" swiperSlide>
+            <ion-item (click)="backToParent(parentId)">
+                <ion-icon src="./assets/finder_icons/go-to-parent-folder.svg" class="backNode "></ion-icon>
+            </ion-item>
+        </ng-template>
+
+        <ng-template *ngFor="let n of nodes;  let i = index" swiperSlide>
+            <ion-item button lines="none " (click)="detail(i) ">
+                <ion-icon *ngIf="n.icon" [src]="'./assets/finder_icons/'+n.icon+'.svg'" class="iconNode"></ion-icon>
+            </ion-item>
+        </ng-template>
+    </swiper>
+</div>

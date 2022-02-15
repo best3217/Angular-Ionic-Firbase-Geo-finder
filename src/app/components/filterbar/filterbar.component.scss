@@ -1,0 +1,104 @@
+ion-row {
+    background: var(--ion-purple-500);
+    gap: var(--finder-gap);
+    padding: 0 var(--finder-default-padding);
+    height: var(--finder-default-size1);
+    justify-content: space-between;
+    ion-col {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: var(--finder-gap);
+    }
+    ion-col:nth-of-type(2) {
+        justify-content: flex-end;
+        flex: 0;
+    }
+    ion-searchbar {
+        height: var(--finder-default-size);
+        --color: var(--ion-gray-400);
+        --icon-color: var(--ion-gray-400);
+        --background: var(--ion-gray-200);
+        --box-shadow: none;
+        background: var(--ion-gray-200);
+        border-radius: 3px;
+        padding: 0;
+    }
+    ion-fab {
+        position: relative;
+        top: 0;
+        margin: 0;
+        left: 0;
+    }
+    ion-fab-button {
+        --background: var(--ion-purple-300);
+        --color: var(--ion-gray-400);
+        --box-shadow: none;
+        width: var(--finder-default-size);
+        height: var(--finder-default-size);
+        margin: 0;
+        ion-icon {
+            display: block;
+            margin: auto;
+        }
+        ion-label {
+            font-size: 0.56rem;
+            padding: 0;
+            text-transform: initial;
+            letter-spacing: normal;
+        }
+    }
+    ion-fab-list {
+        min-width: var(--finder-default-size);
+        margin-top: var(--finder-default-size);
+        ion-fab-button {
+            filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.25));
+        }
+    }
+}
+
+ion-badge {
+    position: absolute;
+    left: 20px;
+    z-index: 10;
+    bottom: 27px;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9999px;
+    color: white;
+    font-size: 0.56rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ion-gray-400);
+}
+
+ion-icon.dropdown_icon {
+    font-size: 8px !important;
+}
+
+@media(min-width:400px) {
+    .fsBtn {
+        ion-label {
+            display: none;
+        }
+    }
+    .button {
+        display: flex;
+        position: relative;
+        right: -3px;
+        align-items: center;
+        justify-content: center;
+    }
+    .drop-label {
+        ion-label {
+            display: none;
+        }
+    }
+}
+
+@media(max-width:400px) {
+    .drop-label {
+        display: flex;
+    }
+}

@@ -1,0 +1,276 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~gfinder/gfinder.style";
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+/* Swiper */
+
+@import '~swiper/swiper-bundle.min';
+@import '~@ionic/angular/css/ionic-swiper';
+
+/**/
+
+ion-split-pane {
+    --side-width: 540px;
+}
+
+ion-searchbar {
+    ion-icon.searchbar-search-icon {
+        right: 10px !important;
+        top: 9px !important;
+        width: 24px !important;
+        height: 24px !important;
+        left: auto !important;
+    }
+    .searchbar-input.sc-ion-searchbar-md {
+        font-size: var(--finder-fontSize-md);
+    }
+    .searchbar-clear-button.sc-ion-searchbar-md {
+        display: none !important;
+    }
+    input {
+        padding-inline-start: 10px !important;
+        padding-inline-end: 30px !important;
+    }
+}
+
+ion-label {
+    font-size: var(--finder-fontSize1);
+}
+
+ion-item {
+    --padding-start: 10px;
+    --inner-padding-end: 10px;
+    @media(max-width: 400px) {
+        --padding-start: 13px;
+        --inner-padding-end: 13px;
+    }
+}
+
+ion-list {
+    padding: 0 !important;
+}
+
+ion-icon {
+    color: var(--ion-gray-400);
+    font-size: 24px;
+    margin: 0;
+}
+
+
+/**/
+
+.footermenu {
+    --max-width: 115px;
+    --box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
+    .popover-content.sc-ion-popover-md {
+        border-radius: 9px;
+    }
+}
+
+.relative {
+    position: relative;
+}
+
+.hashtags {
+    --max-width: 310px;
+    --height: 300px;
+    @media (max-width: 400px) {
+        --max-width: 260px;
+    }
+    .sc-ion-modal-md {
+        border-radius: 0.8rem;
+    }
+    .sc-ion-searchbar-md-h {
+        padding-bottom: 0;
+        padding-top: var(--finder-default-padding);
+        padding-inline-start: var(--finder-default-padding);
+        padding-inline-end: var(--finder-default-padding);
+    }
+    .searchbar-input.sc-ion-searchbar-md {
+        --box-shadow: none !important;
+        border: 1px solid #9D9FA5;
+        height: var(--finder-default-size) !important;
+    }
+    .searchbar-search-icon {
+        display: none !important;
+    }
+}
+
+.tagmenu {
+    .popover-content {
+        @media(min-width: 400px) {
+            left: calc(275px - 150px - 10px) !important;
+        }
+    }
+    --max-width: 150px;
+    --box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
+     ::-webkit-scrollbar {
+        width: 4px;
+    }
+    /* Handle */
+     ::-webkit-scrollbar-thumb {
+        background: #9D9FA5;
+        border-radius: 10px;
+    }
+    .popover-content.sc-ion-popover-md {
+        border-radius: 9px;
+        max-height: calc(100vh - 219px);
+    }
+}
+
+ion-modal {
+    align-items: center !important;
+    --box-shadow: none !important;
+    --max-width: 310px !important;
+    @media (max-width: 400px) {
+        --max-width: 260px !important;
+    }
+    .modal-wrapper {
+        box-shadow: 0px 11px 15px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 9px 46px rgba(0, 0, 0, 0.25) !important;
+        border-radius: 0.8rem !important;
+    }
+}
+
+ion-modal.remove-warning-modal {
+    --height: 142px;
+    @media (max-width: 400px) {
+        --height: 153px;
+    }
+}
+
+ion-modal.remove-modal {
+    --height: 142px;
+    @media (max-width: 400px) {
+        --height: 153px;
+    }
+}
+
+ion-modal.rename-option {
+    --height: 152px;
+    @media (max-width: 400px) {
+        --height: 182px;
+    }
+}
+
+ion-modal.color-option {
+    --height: 160px;
+    @media (max-width: 400px) {
+        --height: 182px;
+    }
+}
+
+ion-modal.statusTag-option {
+    --height: 231px;
+    @media (max-width: 400px) {
+        --height: 259px;
+    }
+}
+
+ion-modal.add-tag-modal {
+    --max-height: 300px;
+    @media (max-width: 400px) {
+        --max-height: 340px;
+    }
+}
+
+ion-alert.warning {
+    --max-width: 310px;
+    .alert-wrapper {
+        box-shadow: none;
+        box-shadow: 0px 11px 15px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 9px 46px rgba(0, 0, 0, 0.25);
+    }
+    .alert-message {
+        padding-inline-start: 10px;
+        padding-inline-end: 10px;
+        color: black;
+        font-size: 15px;
+    }
+    .alert-wrapper.sc-ion-alert-md {
+        border-radius: 20px !important;
+    }
+    .alert-button-group.sc-ion-alert-md {
+        justify-content: space-between;
+    }
+    .alert-button-group {
+        padding: 0;
+        button {
+            width: 50%;
+            margin-inline-end: 0px;
+            -webkit-margin-end: 0px;
+            height: 50px;
+            color: white;
+            background: #455A64;
+            font-size: 1.25rem;
+            .alert-button-inner {
+                justify-content: center;
+            }
+        }
+        button:first-child {
+            border-right: 1px solid white;
+        }
+    }
+    @media (max-width: 400px) {
+        --max-width: 260px;
+    }
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.h-100 {
+    height: 100% !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.picker-columns {
+    color: #ccc;
+}
+
+.picker-opt-selected {
+    color: black !important;
+}
+
+.picker-toolbar {
+    justify-content: space-between !important;
+    button {
+        color: #3880ff!important;
+        font-weight: bold !important;
+    }
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+}

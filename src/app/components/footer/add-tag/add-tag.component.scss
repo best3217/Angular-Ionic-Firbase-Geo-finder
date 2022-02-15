@@ -1,0 +1,125 @@
+.container {
+    padding: var(--finder-default-padding);
+    padding-bottom: 0;
+}
+
+ion-title {
+    color: black;
+    font-size: var(--finder-fontSize-md);
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+ion-item {
+    --padding-start: 0px;
+    --inner-padding-end: 0px;
+    --min-height: val(--finder-defaul-size);
+}
+
+ion-item.active {
+    --background: #e6edf0;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+ion-label.heading {
+    font-size: 0.81em !important;
+    color: var(--ion-gray-400);
+    @media(min-width: 400px) {
+        font-size: 10px !important;
+    }
+}
+
+.selection {
+    ion-row {
+        height: var(--finder-default-size);
+    }
+    ion-icon {
+        color: var(--ion-info-300);
+        font-size: 36px;
+        @media(min-width: 400px) {
+            font-size: 24px;
+        }
+    }
+    ion-col {
+        padding: 0;
+    }
+    ion-label.tag_name {
+        color: var(--ion-info-300);
+        font-size: 9px;
+        line-height: 1;
+        margin-bottom: 4px;
+        @media(min-width: 400px) {
+            font-size: 8px !important;
+        }
+    }
+}
+
+ion-input {
+    height: var(--finder-default-size);
+    --padding-start: 8px !important;
+    --padding-end: 8px;
+    border: 1px solid #C8C7CC;
+    border-radius: 3px;
+    min-height: var(--finder-default-size);
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    width: var(--finder-default-size);
+    height: var(--finder-default-size);
+    background: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+ion-row {
+    padding: 0;
+    &.footer {
+        ion-col {
+            &:first-child {
+                border-right: 0.5px solid #C6C6C6;
+            }
+            &:nth-child(2) {
+                border-left: 0.5px solid #C6C6C6;
+            }
+            padding: 0;
+        }
+    }
+}
+
+ion-button {
+    width: 100%;
+    height: var(--finder-default-size);
+    color: white;
+    margin: 0;
+    --background: var(--ion-info-500);
+    --ripple-color: var(--ion-info-300);
+    --border-radius: none;
+    ion-icon {
+        color: white;
+    }
+}
+
+.invalid {
+    border-color: red;
+    color: red !important;
+}
+
+.error {
+    color: red !important;
+    font-size: 0.6rem !important;
+}

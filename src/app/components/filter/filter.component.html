@@ -1,0 +1,64 @@
+<ion-list ng-controller="MyCtrl">
+    <ion-item (click)="collapse('date')">
+        <ion-row>
+            <ion-col>
+                <ion-title>Datetime</ion-title>
+            </ion-col>
+            <ion-col>
+                <ion-label></ion-label>
+
+                <ion-label>
+                    <ion-icon [name]="isDate?'chevron-down': 'chevron-up'"></ion-icon>
+                </ion-label>
+
+                <ion-label>{{ dateSearchNum }}</ion-label>
+
+                <ion-label class="checkbox">
+                    <ion-icon (click)="dateCheck(); $event.stopPropagation()" [src]="dateChecked? './assets/finder_icons/checkbox-on.svg' :'./assets/finder_icons/checkbox-off.svg'"></ion-icon>
+                </ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-item>
+
+    <ion-list [hidden]="!isDate">
+        <ion-item class="date">
+            <ion-title>Start Date</ion-title>
+            <ion-datetime #fromDateElef [(ngModel)]='fromDate' (ionCancel)="cancelPicker('from')" (ionChange)="addDate($event, 'from')" displayFormat="MMM-DD-YYYY" placeholder="Select Date"></ion-datetime>
+        </ion-item>
+
+        <ion-item class="date">
+            <ion-title>Ends Date</ion-title>
+            <ion-datetime #toDateElef [(ngModel)]="toDate" (ionCancel)="cancelPicker('to')" (ionChange)="addDate($event, 'to')" displayFormat="MMM-DD-YYYY" placeholder="Select Date"></ion-datetime>
+        </ion-item>
+    </ion-list>
+
+    <ion-item button (click)="collapse('sort')">
+        <ion-row>
+            <ion-col>
+                <ion-title>Sensortype</ion-title>
+            </ion-col>
+            <ion-col>
+                <ion-label></ion-label>
+
+                <ion-label>
+                    <ion-icon [name]="isSort? 'chevron-down': 'chevron-up'"></ion-icon>
+                </ion-label>
+
+                <ion-label>{{ sortTypeNum }}</ion-label>
+
+                <ion-label class="checkbox">
+                    <ion-icon (click)="sortCheckAll(); $event.stopPropagation()" [src]="isSortTypechecked? './assets/finder_icons/checkbox-on.svg' : './assets/finder_icons/checkbox-off.svg'"></ion-icon>
+                </ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-item>
+
+    <ion-list button [hidden]="!isSort" class="sortype">
+        <ion-item button (click)='sortToggle(d)' *ngFor="let d of sensortypeData; let i = index">
+            <ion-title color="black">{{ d.title }}</ion-title>
+            <ion-label class="checkbox">
+                <ion-icon slot="end" [src]="d.isChecked?'./assets/finder_icons/checkbox-on.svg': './assets/finder_icons/checkbox-off.svg' "></ion-icon>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</ion-list>

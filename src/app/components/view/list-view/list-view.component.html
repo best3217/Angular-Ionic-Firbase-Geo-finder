@@ -1,0 +1,25 @@
+<ion-label *ngIf="data&&data.length === 0" class="noData" lines="none ">No data!</ion-label>
+
+<div *ngIf="data.length > 0">
+    <div *ngFor="let n of data" class="divitem">
+        <ion-item detail="false" button (click)="toggleCheck(n)" lines="none" [ngClass]="{active: n.isExpanded}">
+            <ion-row>
+                <ion-col>
+                    <ion-icon *ngIf="n.icon" [src]="(n.isExpanded) ? './assets/finder_icons/open-folder.svg' : './assets/finder_icons/'+n.icon+'.svg'" class="iconNode"></ion-icon>
+                    <ion-label color="dark">
+                        {{n.path}}
+                    </ion-label>
+                </ion-col>
+                <ion-col>
+                    <ion-label class="action">
+                        <ion-icon (click)="rename(n, $event)" src="./assets/finder_icons/pencil.svg"></ion-icon>
+                    </ion-label>
+
+                    <ion-label class="action checkbox">
+                        <ion-icon [src]="n.isChecked ? './assets/finder_icons/checkbox-on.svg' : './assets/finder_icons/checkbox-off.svg'"></ion-icon>
+                    </ion-label>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+    </div>
+</div>

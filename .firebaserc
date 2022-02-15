@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "finder-3c521": {
+      "hosting": {
+        "app": [
+          "finder-3c521"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "finder-3c521"
+  }
+}

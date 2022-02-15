@@ -1,0 +1,37 @@
+<ion-row>
+    <ion-col>
+        <ion-title [hidden]="viewType == 'tag'" *ngIf="searchField==='view'">Listing</ion-title>
+
+        <ion-icon color="dark" *ngIf="searchField==='filter'" src="./assets/finder_icons/filter.svg"></ion-icon>
+        <ion-title *ngIf="searchField==='filter'">Filtering</ion-title>
+
+        <ion-icon color="dark" *ngIf="searchField==='sort'" src="./assets/finder_icons/sort.svg"></ion-icon>
+        <ion-title *ngIf="searchField==='sort'">Sort</ion-title>
+        <ion-title *ngIf="viewType == 'tag'&&searchField =='view'">Tags</ion-title>
+
+    </ion-col>
+
+    <ion-col [hidden]="(viewType=='tag'&&searchField == 'view')||searchField == 'sort'">
+        <ion-label #tagMenu style="width: 32px;" [hidden]="searchField == 'filter'" (click)="presentPopover($event)">
+            <ion-icon src="./assets/finder_icons/hashtags.svg"></ion-icon>
+            <ion-icon style="width: 8px;" src="./assets/finder_icons/chevron-arrow-down.svg"></ion-icon>
+        </ion-label>
+
+        <ion-button *ngIf="searchOption" shape="round" (click)="zoom('in')" [disabled]="maxSize==='in'||viewType ==='selection'">
+            <ion-label>
+                <ion-icon src="./assets/finder_icons/zoom-enlarge.svg"></ion-icon>
+            </ion-label>
+        </ion-button>
+
+        <ion-button *ngIf="searchOption" shape="round" (click)="zoom('out')" [disabled]="maxSize==='out'||viewType ==='selection'">
+            <ion-label>
+                <ion-icon src="./assets/finder_icons/zoom-downsize.svg"></ion-icon>
+            </ion-label>
+        </ion-button>
+
+        <ion-label class="selectBtn" [hidden]="viewType=='selection'&&searchField == 'view'">
+            <ion-icon (click)="toggleSelect()" [src]="selected ? './assets/finder_icons/selected-all.svg' : './assets/finder_icons/nothing-selected.svg'"></ion-icon>
+        </ion-label>
+
+    </ion-col>
+</ion-row>

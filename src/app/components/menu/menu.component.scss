@@ -1,0 +1,14 @@
+app-submenu.open {
+    transform: scale(1);
+}
+
+app-submenu {
+    position: absolute;
+    top: 0;
+    width: 275px;
+    height: 100%;
+    transform: scale(0);
+    @media(max-width: 400px) {
+        width: 360px;
+    }
+}

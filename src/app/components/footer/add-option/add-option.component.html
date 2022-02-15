@@ -1,0 +1,15 @@
+<ion-list *ngIf="viewType!='tag'">
+    <ion-item lines="full" button (click)="addNode('folder')">
+        <ion-label>Folder</ion-label>
+    </ion-item>
+
+    <ion-item lines="full" button (click)="addNode('file')">
+        <ion-label>File</ion-label>
+    </ion-item>
+</ion-list>
+
+<ion-list *ngIf="viewType=='tag'">
+    <ion-item lines="full" button (click)="addNode('tag')">
+        <ion-label>Tag</ion-label>
+    </ion-item>
+</ion-list>
